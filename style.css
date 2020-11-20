@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: rgba(246, 199, 173, 0.65);
+    --primary2-color: rgba(233, 160, 119, 0.37);
+    --secondary-color: #bc3300;
+    --secondary2-color: #be3300;
+    --red-color: #C92424;
+    --black-color: #222;
+    --light-color: #F3F3F3;
+    background-color: #000;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: 'Poppins';
+    background-image: linear-gradient(rgba(36, 41, 44, 0.69) 0%, rgba(32, 32, 32, 0.23) 100%);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+main {
+    height: 100vh;
+}
+
+/* frame elements */
+.frame {
+    position: absolute;
+}
+
+.tl {
+    top: 3%;
+    left: 3%;
+}
+
+.tr {
+    top: 3%;
+    right: 3%;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.bl {
+    bottom: 3%;
+    left: 3%;
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+}
+
+.br {
+    bottom: 3%;
+    right: 3%;
+    rotate: 180deg;
+}
+
+/* title */
+h1 {
+    font-size: 6rem;
+    background: -webkit-linear-gradient(var(--primary-color), var(--primary2-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.title {
+    text-align: center;
+    width: 100vw;
+}
+
+.title__subtitle {
+    font-size: 3.3rem;
+    font-weight: 300;
+    line-height: 4rem;
+}
+
+.title__fancy {
+    font-size: 4rem;
+    font-family: 'Alex Brush';
+    font-weight: 300;
+    line-height: 6rem;
+}
+
+/* board */
+.board {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.deck {
+    height: 200px;
+    width: 130px;
+    background-image: url("svg/card-back.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+    margin: auto 50px;
+}
+
+.counter {
+    height: 55px;
+    width: 55px;
+    border: 1px solid var(--primary-color);
+    border-radius: 50%;
+    background: -webkit-linear-gradient(var(--primary-color), var(--primary2-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 55px;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.counter-wrap {
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.cpu-board {
+    transform: translate(-144px, 0)
+}
+
+.player-board {
+    flex-direction: row-reverse;
+    transform: translate(144px, 0)
+}
+
+/* cards */
+.card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4.4rem;
+    background-color: var(--light-color);
+}
+
+.card::before,
+.card::after {
+    content: attr(data-value);
+    position: absolute;
+    font-size: 1.4rem;
+    word-wrap: break-word;
+    width: 5px;
+    line-height: 1.2rem;
+}
+
+.card::before {
+    top: .5rem;
+    left: .5rem;
+}
+
+.card::after {
+    bottom: .5rem;
+    right: .5rem;
+    transform: rotate(180deg);
+}
+
+.card,
+.counter,
+h1 {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.red {
+    color: var(--red-color);
+}
+
+.black {
+    color: var(--black-color)
+}
+
+.card-slot {
+    box-sizing: border-box;
+    height: 200px;
+    width: 130px;
+    box-shadow: 0px 0px 1px 3px var(--primary-color) inset;
+    border-radius: 25px;
+}
