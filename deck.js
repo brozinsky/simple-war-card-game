@@ -1,4 +1,4 @@
-const suits = ['♠', '♣ ', '♥', '♦']
+const suits = ['♠', '♣', '♥', '♦']
 const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 
 export default class Deck {
@@ -8,6 +8,14 @@ export default class Deck {
 
     get numberOfCards() {
         return this.cards.length
+    }
+
+    pop(){
+        return this.cards.shift();
+    }
+
+    push(card){
+        this.cards.push(card)
     }
 
     shuffle() {
@@ -24,6 +32,18 @@ class Card {
     constructor(suit, value) {
         this.suit = suit;
         this.value = value;
+    }
+
+    get color() {
+        return this.suit === '♠' || this.suit === '♣'  ? 'black' : 'red';
+    }
+
+    getHTML() {
+        const cardDiv = document.createElement('div');
+        cardDiv.innerText = this.value;
+        cardDiv.classList.add('card', this.color);
+        cardDiv.dataset.value = `${this.value} ${this.suit}`;
+        return cardDiv;
     }
 }
 
