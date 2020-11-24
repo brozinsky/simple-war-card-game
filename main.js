@@ -75,11 +75,11 @@ function flipCards() {
     updateCounter();
 
     if (roundWinner(playerCard, cpuCard)) {
-        message.innerText = 'Win';
+        message.innerText = 'You win';
         playerDeck.push(playerCard);
         playerDeck.push(cpuCard);
     } else if (roundWinner(cpuCard, playerCard)) {
-        message.innerText = 'Lose';
+        message.innerText = 'You lose';
         cpuDeck.push(cpuCard);
         cpuDeck.push(playerCard);
     } else {
